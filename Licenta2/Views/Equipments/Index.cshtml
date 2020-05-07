@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Licenta2.Models.Equipment>
+@{
+    ViewBag.Title = "Equipments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Equipments</h2>
+<p>
+    @Html.ActionLink("New Equipment", "New", "Equipments", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Equipment</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var equipment in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(equipment.Name, "Edit", "Equipments", new { id = equipment.Id }, null)</td>
+                <td>@equipment.Category.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
